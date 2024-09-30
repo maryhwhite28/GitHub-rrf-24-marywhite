@@ -1,4 +1,5 @@
 # Reproducible Research Fundamentals 2024 - R
+Author: Mary White
 
 Welcome to the **Reproducible Research Fundamentals 2024** training repository. This repository will guide you through all the exercises across the following stages:
 
