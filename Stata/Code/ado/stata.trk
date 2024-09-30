@@ -1,0 +1,265 @@
+* 00000007
+*! version 1.0.0
+* Do not erase or edit this file
+* It is used by Stata to track the ado and help
+* files you have installed.
+
+S http://fmwww.bc.edu/repec/bocode/i
+N ietoolkit.pkg
+D 30 Sep 2024
+U 1
+d 'IETOOLKIT': module providing commands specially developed for Impact Evaluations
+d 
+d  ietookit provides a set of commands that address different
+d aspects of data management and data analysis in relation to
+d Impact Evaluations. The list of commands will be extended
+d continuously, and suggestions on new commands are highly
+d appreciated. Some of the commands are related to standardized
+d practices developed at the World Bank’s unit for Impact
+d Evaluations (DIME) and might not apply to practices adopted at
+d other institutions. For these commands, the corresponding help
+d files provide justifications for the standardized practices
+d applied. ieduplicates and iecompdup are useful tools to identify
+d and correct for duplicates. iebaltab is a tool for multiple
+d treatment arm balance tables. ieboilstart standardizes the
+d boilerplate code at the top of all do-files. iegraph produces
+d graphs based on common impact evaluation regression models. See
+d https://github.com/worldbank/ietoolkit for more details.
+d 
+d KW: reproducible research
+d KW: impact evaluations
+d KW: data management
+d KW: survey data
+d KW: data analysis
+d KW: balance tables
+d KW: difference-in-differences
+d KW: matching
+d 
+d Requires: Stata version 12
+d 
+d Distribution-Date: 20240212
+d 
+d Author: DIME Analytics, The World Bank, DECIE
+d Support: email  lcardosodeandrad@@worldbank.org
+d 
+f i\ietoolkit.ado
+f i\ietoolkit.sthlp
+f i\iebaltab.ado
+f i\iebaltab.sthlp
+f i\ieboilsave.ado
+f i\ieboilsave.sthlp
+f i\ieboilstart.ado
+f i\ieboilstart.sthlp
+f i\ieddtab.ado
+f i\ieddtab.sthlp
+f i\iedorep.ado
+f i\iedorep.sthlp
+f i\iedropone.ado
+f i\iedropone.sthlp
+f i\iefolder.ado
+f i\iefolder.sthlp
+f i\iegitaddmd.ado
+f i\iegitaddmd.sthlp
+f i\iegraph.ado
+f i\iegraph.sthlp
+f i\iekdensity.ado
+f i\iekdensity.sthlp
+f i\iematch.ado
+f i\iematch.sthlp
+f i\iesave.ado
+f i\iesave.sthlp
+e
+S http://fmwww.bc.edu/repec/bocode/i
+N iefieldkit.pkg
+D 30 Sep 2024
+U 2
+d 'IEFIELDKIT': module providing Stata commands for primary data collection and cleaning
+d 
+d  iefieldkit provides a set of commands that enable a reproducible
+d primary data collection and cleaning workflow. The package is
+d developed to facilitate a workflow including (1) data collection
+d (in particular using opendatakit.org, more specifically
+d surveycto.com); (2) basic data cleaning, such as labeling and
+d recoding; (3) reconciling survey rounds; (4) preparing codebooks
+d to document data sets. iefieldkit was developed to standardize
+d and simplify best practices for high-quality primary data
+d collection across the World Bank's Development Research Group
+d Impact Evaluations team (DIME). The commands can also be used
+d independently, and are developed to be applicable to many other
+d contexts as well. See https://github.com/worldbank/iefieldkit for
+d more details.
+d 
+d KW:  impact evaluations
+d KW: field work
+d KW: ODK
+d KW: survey data
+d KW: primary data collection
+d KW: SurveyCTO
+d KW: data cleaning
+d KW: survey harmonization
+d KW: duplicates
+d KW: codebooks
+d 
+d Requires: Stata version 11
+d 
+d Distribution-Date: 20230802
+d 
+d Author: DIME Analytics, The World Bank, DECIE
+d Support: email  lcardosodeandrad@@worldbank.org
+d 
+f i\iefieldkit.ado
+f i\iefieldkit.sthlp
+f i\iecodebook.ado
+f i\iecodebook.sthlp
+f i\iecompdup.ado
+f i\iecompdup.sthlp
+f i\iecorrect.ado
+f i\iecorrect.sthlp
+f i\ieduplicates.ado
+f i\ieduplicates.sthlp
+f i\ietestform.ado
+f i\ietestform.sthlp
+e
+S http://fmwww.bc.edu/repec/bocode/w
+N winsor.pkg
+D 30 Sep 2024
+U 3
+d 'WINSOR': module to Winsorize a variable
+d 
+d winsor takes the non-missing values of a variable and generates a
+d new variable  identical except that the h highest and h lowest
+d values are replaced by the  next value counting inwards from the
+d extremes. h can be specified directly or  indirectly by
+d specifying a fraction p of the number of observations: h =  [p
+d n]. This transformation is named after the biostatistician C.P.
+d Winsor. This is version 1.3.0 of  the software.
+d 
+d Author: Nicholas J. Cox, University of Durham
+d Support: email N.J.Cox@@durham.ac.uk
+d 
+d Distribution-Date: 20060809
+f w\winsor.ado
+f w\winsor.hlp
+e
+S http://fmwww.bc.edu/repec/bocode/s
+N sumstats.pkg
+D 30 Sep 2024
+U 4
+d 'SUMSTATS': module to produce tables of summary statistics
+d 
+d  sumstats easily generates a table of summary statistics with
+d various if-restrictions and prints them to a specified output
+d file using putexcel.
+d 
+d KW: descriptive statistics
+d KW: summary statistics
+d KW: spreadsheet
+d 
+d Requires: Stata version 15.1
+d 
+d Distribution-Date: 20191221
+d 
+d Author: Benjamin Daniels, World Bank
+d Support: email bbdaniels@@gmail.com
+d 
+f s\sumstats.ado
+f s\sumstats.sthlp
+e
+S http://fmwww.bc.edu/repec/bocode/e
+N estout.pkg
+D 30 Sep 2024
+U 5
+d 'ESTOUT': module to make regression tables
+d 
+d  estout produces a table of regression results from one or
+d several models for use with spreadsheets, LaTeX, HTML, or a
+d word-processor table. eststo stores a quick copy of the active
+d estimation results for later tabulation. esttab is a wrapper for
+d estout. It displays a pretty looking publication-style regression
+d table without much typing. estadd adds additional results to the
+d e()-returns for one or several models previously fitted and
+d stored. This package subsumes the previously circulated esto,
+d esta, estadd,  and estadd_plus. An earlier version of estout is
+d available  as estout1.
+d 
+d KW: estimates
+d KW: LaTeX
+d KW: HTML
+d KW: word processor
+d KW: output
+d 
+d Requires: Stata version 8.2
+d 
+d Distribution-Date: 20230212
+d 
+d Author: Ben Jann, University of Bern
+d Support: email jann@@soz.unibe.ch
+d 
+f _\_eststo.ado
+f _\_eststo.hlp
+f e\estadd.ado
+f e\estadd.hlp
+f e\estout.ado
+f e\estout.hlp
+f e\eststo.ado
+f e\eststo.hlp
+f e\estpost.ado
+f e\estpost.hlp
+f e\esttab.ado
+f e\esttab.hlp
+e
+S http://fmwww.bc.edu/repec/bocode/k
+N keeporder.pkg
+D 30 Sep 2024
+U 6
+d 'KEEPORDER': module to keep and order a set of variables
+d 
+d  Keep and then order variables, eliminating the need to run -keep
+d varlist- and then -order varlist-
+d 
+d KW: data management
+d 
+d Requires: Stata version 10
+d 
+d Distribution-Date: 20140709
+d 
+d Author: James Feigenbaum, Harvard University
+d Support: email jfeigenb@@fas.harvard.edu
+d 
+f k\keeporder.ado
+f k\keeporder.sthlp
+e
+S http://fmwww.bc.edu/repec/bocode/g
+N grc1leg2.pkg
+D 30 Sep 2024
+U 7
+d 'GRC1LEG2': module to combine multiple graphs with a single common legend
+d 
+d    grc1leg2 is an enhanced version of Vince Wiggins' grc1leg.
+d Like grc1leg, grc1leg2 is a wrapper for Stata's graph    combine,
+d invoking its ability to array separate, previously drawn graphs
+d as panels in a single combined graph.    By default, the
+d characteristics of the common legend are inherited from the
+d original version of the legend in the first  component graph,
+d or in the graph specified by the option legendfrom(name).  With
+d grc1leg2's legend options, the user can    precisely control the
+d placement of the common legend within the combined graph.  Other
+d legend options allow the user to    override some of the
+d characteristics of the legend inherited from its original
+d creation as part of one of the component    graphs.
+d 
+d KW: graphics
+d KW: legend
+d 
+d Requires: Stata version 13
+d 
+d Distribution-Date: 20240812
+d 
+d Author:   Mead Over, Center for Global Development
+d Support: email MOver@@cgdev.org
+d 
+f g\grc1leg2.ado
+f g\grc1leg2.sthlp
+f g\grc1leg2_examples.ado
+f g\grc1leg2.dlg
+e
