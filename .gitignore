@@ -57,6 +57,7 @@
 .Rproj.user
 # Still ignore renv/library
 /**/renv/library/
+!*.qmd
 
 # LaTeX
 !/**/*.tex
