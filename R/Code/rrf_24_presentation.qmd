@@ -1,0 +1,84 @@
+---
+title: "RRF Quarto Presentation"
+format: revealjs
+editor: visual
+author: Mary White
+date: October 2, 2024
+---
+
+## Contents
+
+-   **Analysis Plot**
+
+-   **Summary Statistics**
+
+-   **Regression Analysis**
+
+# Introduction
+
+![](images/hamster-dance.gif)
+
+## Non-Food Consumption by Gender of Household Head
+
+![](images/fig2.png)
+
+## What day is it?
+
+```{r, echo = TRUE}
+Sys.Date()
+```
+
+## Summary Statistics
+
+```{r, echo = FALSE}
+# Load a sample dataset
+data <- read.csv("C:/Users/wb612884/GitHub/GitHub-rrf-24-marywhite/R/Outputs/summary_table.csv")
+
+# Display the dataset as a table -
+knitr::kable(data)
+```
+
+## Tanzania CCT: Regression Analysis
+
+```{r, warning=FALSE, echo=FALSE, results='asis'}
+# Load data 
+library(haven)
+library(stargazer)
+
+data_path <- "C:/Users/wb612884/OneDrive - WBG/Documents/RRF/Course Materials/DataWork/Data"
+#household level data
+hh_data <- read_dta(file.path(data_path, "Final/TZA_CCT_analysis.dta"))
+
+# secondary data 
+secondary_data <- read_dta(file.path(data_path, "Final/TZA_amenity_analysis.dta"))
+
+# Model 1: Food consumption regressed on treatment
+model1 <- lm(food_cons_usd_w ~ treatment, data = hh_data)
+
+# Model 2: Add controls (crop_damage, drought_flood)
+model2 <- lm(food_cons_usd_w ~ treatment + crop_damage + drought_flood, data = hh_data)
+
+# Model 3: Add clustering by village
+model3 <- lm(food_cons_usd_w ~ treatment + crop_damage + drought_flood, data = hh_data)
+
+# HTML wrapper to reduce font size
+cat("<div style='font-size: 15px;'>")
+
+# Generate regression table using stargazer
+stargazer(
+  model1, model2, model3,
+  type = "html", # for HTML output
+  title = "Regression Table",
+  covariate.labels = c("Treatment", "Crop Damage", "Drought/Flood"),
+  dep.var.labels = c("Food Consumption (USD)"),
+  add.lines = list(c("Clustering by Village", "No", "No", "Yes")),
+  notes = "Standard errors in parentheses",
+  header = FALSE,
+  digits = 2,
+  column.sep.width =  "3pt", 
+ # font.size =  "tiny",
+  style = "qje" # formatting style for better appearance
+)
+
+cat("</div>")
+```
