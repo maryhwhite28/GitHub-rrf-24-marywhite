@@ -2,23 +2,21 @@
 # 03. Data Analysis
 
 # Libraries
- library(haven)
- library(dplyr)
- library(modelsummary)
- library(stargazer)
- library(ggplot2)
- library(tidyr)
- library(ggthem)
+# library(haven)
+# library(dplyr)
+# library(modelsummary)
+# library(stargazer)
+# library(ggplot2)
+# library(tidyr)
 
 # Load data 
 #household level data
-data_path <- "C:/Users/wb612884/OneDrive - WBG/Documents/RRF/Course Materials/DataWork/Data"
+#data_path <- "C:/Users/wb612884/OneDrive - WBG/Documents/RRF/Course Materials/DataWork/Data"
 hh_data   <- read_dta(file.path(data_path, "Final/TZA_CCT_analysis.dta"))
 
 # secondary data 
 secondary_data <- read_dta(file.path(data_path, "Final/TZA_amenity_analysis.dta")) %>%
-    mutate(district = as_factor(adm2_en))
-
+    rename('district'='adm2_en')
 # Summary statistics ----
 
 # Create summary statistics by district and export to CSV
@@ -93,7 +91,7 @@ stargazer(
 )
 
 # Graphs: Area cultivated by treatment assignment across districts ----
-ggthemr("fresh")
+#ggthemr("fresh")
 # Bar graph by treatment for all districts
 # Ensure treatment is a factor for proper labeling
 hh_data_plot <- hh_data %>%

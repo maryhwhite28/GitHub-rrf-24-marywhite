@@ -1,10 +1,10 @@
 # Reproducible Research Fundamentals 
 # 02. Data construction
 # RRF - 2024 - Construction
-library(WDI)
+#library(WDI)
 
 # Preliminary - Load Data ----
-data_path <- "C:/Users/wb612884/OneDrive - WBG/Documents/RRF/Course Materials/DataWork/Data"
+#data_path <- "C:/Users/wb612884/OneDrive - WBG/Documents/RRF/Course Materials/DataWork/Data"
 
 # Load household-level data (HH)
 hh_data <- read_dta(file.path(data_path, "Intermediate/TZA_CCT_HH.dta"))
